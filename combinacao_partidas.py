@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 from io import BytesIO
 from openpyxl import load_workbook
+from itertools import combinations_with_replacement
 
 st.set_page_config(page_title="InPES Futebol Virtual", page_icon=":soccer:")
 
