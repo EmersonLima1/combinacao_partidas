@@ -12,7 +12,7 @@ st.title('**Resultados do Futebol Virtual**')
 st.write('\n\n')
 
 # Perguntas para o usuário
-resultado_partida_desejado = st.selectbox("Qual resultado deseja encontrar?", ['Casa', 'Empate', 'Fora', 'Under 0.5', 'Under 1.5', 'Under 2.5', 'Under 3.5', 'Over 0.5', 'Over 1.5', 'Over 2.5', 'Over 3.5', '5+', 'Ambas marcaram', 'Ambas não marcaram'])
+resultado_partida_desejado = st.selectbox("Qual resultado deseja encontrar?", ['', 'Empate', 'Under 0.5', 'Under 1.5', 'Under 2.5', 'Under 3.5', 'Over 0.5', 'Over 1.5', 'Over 2.5', 'Over 3.5', '5+', 'Ambas marcaram', 'Ambas não marcaram'])
 num_combinacoes = st.number_input("Qual o número de combinações de partidas?", min_value=3, max_value = 10, value=3, step=1)
 num_resultados = st.number_input("Quantos resultados de partidas deseja exibir?", min_value=5, max_value = 25, value=5, step=1)
 
@@ -28,7 +28,7 @@ def gerar_resultados():
   sheet_names = excel_data.sheet_names
 
   # Criação das combinações
-  classes = ['Casa', 'Empate', 'Fora', 'Under 0.5', 'Under 1.5', 'Under 2.5', 'Under 3.5', 'Over 0.5', 'Over 1.5', 'Over 2.5', 'Over 3.5', '5+', 'Ambas marcaram', 'Ambas não marcaram']
+  classes = ['', 'Empate', 'Under 0.5', 'Under 1.5', 'Under 2.5', 'Under 3.5', 'Over 0.5', 'Over 1.5', 'Over 2.5', 'Over 3.5', '5+', 'Ambas marcaram', 'Ambas não marcaram']
 
   # Gerar todas as combinações possíveis dos 14 valores da lista 'classes', levando em consideração que a ordem não importa e os valores podem ser repetidos
   combinacoes = list(combinations_with_replacement(classes, num_combinacoes))
@@ -126,7 +126,7 @@ def gerar_resultados():
           descricao_resultado = "Ambas marcaram" if gols_casa > 0 and gols_visitante > 0 else "Ambas não marcaram"
 
           # Determinar o resultado da partida com base nos gols marcados por cada equipe
-          resultado_partida = 'Casa' if gols_casa > gols_visitante else 'Fora' if gols_visitante > gols_casa else 'Empate'
+          resultado_partida = 'Empate' if gols_casa == gols_visitante else ''
 
           # Calcular a soma dos gols marcados
           soma_gols = gols_casa + gols_visitante
