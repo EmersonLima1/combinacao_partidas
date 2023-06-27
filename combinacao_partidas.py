@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 from io import BytesIO
 from openpyxl import load_workbook
-from tabulate import tabulate
 
 st.set_page_config(page_title="InPES Futebol Virtual", page_icon=":soccer:")
 
