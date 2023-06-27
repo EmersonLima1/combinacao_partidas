@@ -28,7 +28,7 @@ def gerar_resultados():
   sheet_names = excel_data.sheet_names
 
   # Criação das combinações
-  classes = ['', 'Empate', 'Under 0.5', 'Under 1.5', 'Under 2.5', 'Under 3.5', 'Over 0.5', 'Over 1.5', 'Over 2.5', 'Over 3.5', '5+', 'Ambas marcaram', 'Ambas não marcaram']
+  classes = ['Empate', 'Under 0.5', 'Under 1.5', 'Under 2.5', 'Under 3.5', 'Over 0.5', 'Over 1.5', 'Over 2.5', 'Over 3.5', '5+', 'Ambas marcaram', 'Ambas não marcaram']
 
   # Gerar todas as combinações possíveis dos 14 valores da lista 'classes', levando em consideração que a ordem não importa e os valores podem ser repetidos
   combinacoes = list(combinations_with_replacement(classes, num_combinacoes))
