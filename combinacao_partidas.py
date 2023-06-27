@@ -206,14 +206,6 @@ def gerar_resultados():
           
       st.write(top_combinações)
 
-      # Verifica se o botão "Exportar resultados" foi pressionado
-      if st.button("Exportar resultados"):
-
-        # Cria um arquivo Excel com páginas correspondentes a cada sheet_name
-        with pd.ExcelWriter('resultados.xlsx') as writer:
-            for sheet_name, combinações_sheet in resultado_df.groupby('sheet_name'):
-                combinações_sheet.to_excel(writer, sheet_name=sheet_name, index=False)
- 
 # Botão "Gerar resultados"
 if st.button("Gerar resultados"):
     gerar_resultados()
